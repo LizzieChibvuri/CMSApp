@@ -46,7 +46,7 @@ app.use(passport.session()); // persistent login sessions
 var sess;
 
 
-app.get('/',authenticated,function(req,res)
+app.get('/',function(req,res)
 {
 	var data=articles.selectArticles(function(err,recordset){
 
