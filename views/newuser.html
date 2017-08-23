@@ -1,0 +1,70 @@
+<html>
+ <head>
+  <title>New user</title>
+  <script src=''></script>
+  <link rel="stylesheet" type="text/css" href="/public/css/stylesheet.css"/>
+
+</head>
+<body style="background-color: gray">
+
+<div class="form">
+<form  action='/newuser' method="post" align="center" float="right" style="width:100%%">
+<fieldset>
+<legend align="center">New user form</legend>
+
+    <label for="firstname">Firstname:</label>
+   <input type="text" name="firstname" size="40" placeholder="type firstname" id="firstname">
+   <br />
+   <br />
+    <label for="lastname">LastName:</label>
+   <input type="password" name="password" size="40" placeholder="type your lastname" id="lastname">
+   <br />
+   <br />
+       <label for="username">Username:</label>
+   <input type="text" name="username" size="40" placeholder="type your username" id="username">
+   <br />
+   <br />
+   <label for="email">Email:</label>
+   <input type="text" name="email" size="40" placeholder="type your email" id="email">
+   <br />
+   <br />
+    <label for="password">Password:</label>
+   <input type="password" name="password" size="40" placeholder="type your password" id="password">
+   <br />
+   <br />
+    <label for="password">Confirm  Password:</label>
+   <input type="password" name="confirmpassword" size="40" placeholder="type your password" id="confirmpassword">
+   <br />
+   <br />
+   <input type="button" value="Submit" id="submit"><br/><br/>
+</fieldset>
+ </form>
+</div>
+<div class="form">
+<form  action='/listusers' method="post" align="center"  float="left" style="width:100%">
+<fieldset>
+<legend align="center">User List</legend>
+
+    <table  width="100%" style="border:2px solid">
+    <tr>
+    <th>Firstname</th>
+    <th>LastName</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Actions</th>
+    </tr>
+    <tr>
+    <td>fiels1</td>
+    <td>fiels2</td>
+    <td>fiels3</td>
+    <td>fiels4</td>
+    <td>fiels5</td>
+    <td><a href="#">view</a><br/><a href="#">edit</a><br/><a href="#">delete</a></td>
+    </tr>
+    </table>
+</fieldset>
+ </form>
+ </div>
+</body>
+</html>

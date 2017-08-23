@@ -1,0 +1,92 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Data Modelling and Analysis Base Template</title>
+
+        <link href="externalLibraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- <link href="mediaAssets/templates/newAge/css/new-age.css" rel="stylesheet"> -->
+
+        <script src="externalLibraries/jqueryMin.js"></script>
+        <script src="externalLibraries/bootstrap/js/bootstrap.js"></script>
+
+        <script src="coreClasses/utilities/utilities.js"></script>
+        <script src="coreClasses/class.aui.js"></script>
+        <script src="coreClasses/class.ajax.js"></script>
+        
+        <script src="registries/fonts.js"></script>
+        <script src="registries/css.js"></script>
+        
+        <script src="appScript/myStyle.js"></script>
+        <script src="appScript/loader.js"></script>
+        <script type="javascript">
+            var cssSet = new styleRegistry();
+            cssSet.loadFont('Zilla');
+            cssSet.loadCss('basic');
+
+            var aj1 = new ajaxGet({
+                path: 'http://localhost/0-autobase/Node/test09/staticSite/index5.php'
+            });
+
+            aj1.executeGet(
+                {
+                    val1: 10,
+                }, 
+                function(dataResponse, parameters)
+                {
+                    pr(dataResponse)
+                }
+            );
+
+            // var a = new auiDiv('view1', {script: '<h1>here!</h1>'}, {id: 'rootView'});
+            
+            // a.add('view2', 'auiDiv', {script: 'zzzz'});
+            
+            // a.add('view3', 'auiDropButton', {
+            //     title: 'testButton', 
+            //     options: {
+            //         runNN: {label: 'Run Neural Network', href: 'http://google.com'},
+            //         clickMe: {label: 'Click event tester', callback: function(){alert('zzzz')}}
+            //     }
+            // });
+            
+            // var tabSet = a.add('view4', 'auiTabs', {tabs:{
+            var a = new auiNavbar('view1', {
+                title: {label: 'AutoScholar Advisor', cssStyle: 'font-family: Zilla; font-size:2em; color: #ffffff'},
+                left: {
+                    about: {label: 'About', callback: function(){alert('about')}},
+                    programs: {label: 'Programs', callback: function(){alert('programs')}},
+                    students: {label: 'Students', callback: function(){alert('Students')}}
+                },
+                right: {
+                    privacy: {label: 'Privacy'},
+                    myAccount: {label: 'My Account'}
+                }
+            }, {id: 'rootView'});
+            
+            a.add('view2', 'auiTabs', {tabs:{
+                tab1: {label: 'Tab 1', script: 'Tab 1 content'},
+                tab2: {label: 'Tab 2', script: 'Tab 2 content', callback: 'Hi there!'},
+                tab3: {label: 'Tab 3', script: 'Tab 3 content'},
+                tab4: {label: 'Tab 4', script: 'Tab 4 content'}
+            }})
+            
+            a.render();
+
+            // .setContent({script: '<h3>This is my text</h3>'}).render();
+        </script>
+                                
+    </head>
+
+    <body>
+        
+        <!-- ////////////////////////////////////////////////////////////////////////////// -->
+        <center>
+            <div id="rootView" style="background-color: #ffffff;"></div>
+        </center>
+ 
+    </body>
+</html>

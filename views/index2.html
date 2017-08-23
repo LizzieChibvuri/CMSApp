@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javacript"  src="/js/jquery-3.2.1.js"></script>
+</head>
+<body>
+
+<button id='login' onclick="userLogin()" >Getdata</button><br/>
+<button id='test' onclick="alert('test clicked')" >Login</button><br/>
+<br/>
+<pre id='#getResponse'></pre>
+
+<script>
+function userLogin()
+{
+	console.log('insyd function');
+
+	$.ajax({
+		type:"GET",
+		url:"http://localhost:3000/membersadmin",
+		datatype:"json"
+	})
+	.done(function(data){
+		console.log('Get response:',JSON.stringify(data,'',2));
+       $('#getResponse').html(JSON.stringify(data,'',2));
+	})
+	.fail(function(jqXHR,textStatus,err){
+		console.log('AJAX error response:' textStatus);
+	});
+}
+</script>
+</body>
+</html>

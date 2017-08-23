@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="UTF-8">
+		<script src="js/jquery-3.2.1.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function()
+			{
+				$('#qwe1').on('click', function(){
+					getUserList();
+				})
+
+				$('#getusers').on('click', function(){
+					getUserList();
+				})
+
+				// $('#getusers').click(getUserList());
+
+			});
+
+			function getUserList() 
+			{
+				alert(111)
+
+				var $users=$('#users');
+				 
+				$.ajax({
+					type:"GET",
+					url:"/membersadmin",
+					datatype:"json"
+					})
+			    .done(function(users){
+					$.each(users,function(i,user){
+						$users.append('<li>name:'+ user.email +'</li>')
+					})
+				})
+				.fail(function(jqXHR,textStatus,err){
+						console.log('AJAX error response:'+ textStatus);
+				});
+
+			}
+
+
+		</script>
+
+	</head>
+
+	<body>
+		<div id = "qwe1">asdf</div>
+		<div id='getusers' >List Users</div><br/>
+		<br/>
+		<ul id='users'>
+			
+		</ul>
+
+
+	</body>
+
+</html>

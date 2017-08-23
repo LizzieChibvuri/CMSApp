@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="UTF-8">
+	<title>USERS</title>
+	<script type='text/javascript' src='js/jquery-3.2.1.js'></script>
+	<script>
+	    $(document).ready(function(){
+
+	    	$('#listusers').click(getUserList);
+	    	 	
+	    });
+
+	    function getUserList() 
+		{
+			alert(111)
+
+			var $users=$('#users');
+				 
+			$.ajax({
+					type:"GET",
+					url:document.URL+"/membersadmin",
+					dataType:"json",
+					success: function(users){
+					    $.each(users,function(i,user){
+							$users.append('<li>name:'+ user.email +'</li>');
+					 	})
+				    },
+				    error:function(xhr,status){
+						console.log('AJAX error response:'+ status);
+				    },
+
+				    complete:function(xhr,status){
+						console.log('the request is complete');
+				    }
+			});
+
+		}
+
+
+		
+	</script>
+
+</head>
+
+<body>
+	<div id='listusers'>getusers</div>
+	<ul id='users'>
+		
+	</ul>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Data Modelling and Analysis Base Template</title>
+
+        <link href="externalLibraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- <link href="mediaAssets/templates/newAge/css/new-age.css" rel="stylesheet"> -->
+
+        <script src="externalLibraries/jqueryMin.js"></script>
+        <script src="externalLibraries/bootstrap/js/bootstrap.js"></script>
+
+        <script src="coreClasses/utilities/utilities.js"></script>
+        <script src="coreClasses/class.aui.js"></script>
+        <script src="coreClasses/class.ajax.js"></script>
+        <script src="registries/fonts.js"></script>
+        <script src="registries/css.js"></script>
+        
+        <script src="appScript/myStyle.js"></script>
+        <script src="appScript/loader.js"></script>
+        <script>
+
+            var aj1 = new ajaxGet({
+                getType:'GET',
+                path: 'http://localhost:3000/membersadmin'
+            });
+
+            aj1.executeGet(
+                {
+                    val1: 10
+                }, 
+                function(dataResponse, parameters)
+                {
+                  pr(dataResponse)
+                }
+            );
+
+            var cssSet = new styleRegistry();
+            cssSet.loadFont('Zilla');
+            cssSet.loadCss('basic');
+
+            var a = new auiTabs('view4', {tabs:{
+                tab1: {label: 'Tab 1', script: 'Tab 1 content'},
+                tab2: {label: 'Tab 2', script: 'Tab 2 content', callback: 'Hi there!'},
+                tab3: {label: 'Tab 3', script: 'Tab 3 content'},
+                tab4: {label: 'Tab 4', script: 'Tab 4 content'}
+            }}, {id: 'rootView'})
+            
+            a.render();
+            // .setContent({script: '<h3>This is my text</h3>'}).render();
+        </script>
+                                
+    </head>
+
+    <body>
+        <center>
+            <div id="rootView" style="background-color: #66BCF9; padding: 20px"></div>
+        </center>
+ 
+    </body>
+</html>

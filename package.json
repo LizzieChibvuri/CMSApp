@@ -1,0 +1,38 @@
+{
+  "name": "cms",
+  "version": "1.0.0",
+  "description": "cms app with ms sql server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Elizabeth Chibvuri <echibvuri4@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "base64url": "^2.0.0",
+    "body-parser": "*",
+    "cookie-parser": "^1.4.3",
+    "crypto": "^1.0.1",
+    "dotenv": "^4.0.0",
+    "password-hash":"*",
+    "ejs": "^2.5.7",
+    "express": "^4.15.3",
+    "express-session": "*",
+    "express-validator": "^3.2.1",
+    "mssql": "^4.0.4",
+    "nodemailer": "^4.0.1",
+    "nodemailer-smtp-transport": "*",
+    "nodemon": "^1.11.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "xoauth2": "^1.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LizzieChibvuri/CMSApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LizzieChibvuri/CMSApp/issues"
+  },
+  "homepage": "https://github.com/LizzieChibvuri/CMSApp#readme"
+}

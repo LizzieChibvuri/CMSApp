@@ -1,0 +1,86 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Login</title>
+
+        <link href="externalLibraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- <link href="mediaAssets/templates/newAge/css/new-age.css" rel="stylesheet"> -->
+
+        <script src="externalLibraries/jqueryMin.js"></script>
+        <script src="externalLibraries/bootstrap/js/bootstrap.js"></script>
+
+        <script src="coreClasses/utilities/utilities.js"></script>
+        <script src="coreClasses/class.aui.js"></script>
+        <script src="coreClasses/class.ajax.js"></script>
+        <script src="registries/fonts.js"></script>
+        <script src="registries/css.js"></script>
+        
+        <script src="appScript/myStyle.js"></script>
+        <script src="appScript/loader.js"></script>
+        <script>
+           
+           
+            var cssSet = new styleRegistry();
+            cssSet.loadFont('Zilla');
+            cssSet.loadCss('basic');
+
+             var a = new auiNavbar('view1', {
+                title: {label: 'AutoScholar Advisor', cssStyle: 'font-family: Zilla; font-size:2em; color: #ffffff'},
+                left: {
+                    about: {label: 'About', callback: function(){alert('about')}},
+                    programs: {label: 'Programs', callback: function(){alert('programs')}},
+                    students: {label: 'Students', callback: function(){alert('Students')}}
+                },
+                right: {
+                    privacy: {label: 'Privacy'},
+                    myAccount: {label: 'My Account'}
+                }
+            }, {id: 'rootView'});
+            
+          
+            
+            
+            a.render();
+            // .setContent({script: '<h3>This is my text</h3>'}).render();
+        </script>
+                                
+    </head>
+
+    <body>
+        <center>
+            <div id="rootView" style="background-color: #66BCF9; padding: 20px"></div>
+        </center>
+            <div class='container'>
+                <form method="POST"  action="/login">
+                    <fieldset>
+                      <legend><h1>Login</h1></legend>
+                    
+                      <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name='email' id="email" placeholder="Email" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name='password' id="password" placeholder="Password" required>
+                      </div>
+                      
+                      <center> 
+
+                      <button type="submit" class="btn btn-primary">Submit</button><br/>
+
+                        <a href="http://localhost:3000/forgot.html">Forgot Password</a><br/>
+
+                        <a href="http://localhost:3000/signup.html">Register</a>
+
+                      </center>
+
+                    </fieldset>
+                </form>
+              </div> 
+ 
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Reset</title>
+
+        <link href="externalLibraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- <link href="mediaAssets/templates/newAge/css/new-age.css" rel="stylesheet"> -->
+
+        <script src="externalLibraries/jqueryMin.js"></script>
+        <script src="externalLibraries/bootstrap/js/bootstrap.js"></script>
+
+        <script src="coreClasses/utilities/utilities.js"></script>
+        <script src="coreClasses/class.aui.js"></script>
+        <script src="coreClasses/class.ajax.js"></script>
+        <script src="registries/fonts.js"></script>
+        <script src="registries/css.js"></script>
+        
+        <script src="appScript/myStyle.js"></script>
+        <script src="appScript/loader.js"></script>
+        <script>
+
+           
+            var cssSet = new styleRegistry();
+            cssSet.loadFont('Zilla');
+            cssSet.loadCss('basic');
+
+             var a = new auiNavbar('view1', {
+                title: {label: 'AutoScholar Advisor', cssStyle: 'font-family: Zilla; font-size:2em; color: #ffffff'},
+                left: {
+                    about: {label: 'About', callback: function(){alert('about')}},
+                    programs: {label: 'Programs', callback: function(){alert('programs')}},
+                    students: {label: 'Students', callback: function(){alert('Students')}}
+                },
+                right: {
+                    privacy: {label: 'Privacy'},
+                    myAccount: {label: 'My Account'}
+                }
+            }, {id: 'rootView'});
+            
+          
+            
+            
+            a.render();
+            // .setContent({script: '<h3>This is my text</h3>'}).render();
+        </script>
+                                
+    </head>
+
+    <body>
+        <center>
+            <div id="rootView" style="background-color: #66BCF9; padding: 20px"></div>
+        </center>
+            <div class='container'>
+                <form method="POST"  action="/forgotpass">
+                    <fieldset>
+                      <legend><h1>Enter your email address</h1></legend>
+                    
+                      <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name='email' id="email" placeholder="Email" required>
+                      </div>
+                     
+                      
+                      <center> <button type="submit" class="btn btn-primary">Submit</button></center>
+                    </fieldset>
+                </form>
+              </div> 
+ 
+    </body>
+</html>

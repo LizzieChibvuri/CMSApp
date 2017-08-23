@@ -1,0 +1,12 @@
+<table>
+  <tr>
+    <th>id</th><th>Articles </th>
+  </tr>
+
+  <% for (var i = 0; i < data.length; i++) { %>
+    <tr>
+      <td><%=data[i].title %></td>
+      <td><%=data[i].article %></td>
+    </tr>    
+  <% } %>
+</table>

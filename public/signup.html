@@ -1,0 +1,149 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Data Modelling and Analysis Base Template</title>
+
+        <link href="externalLibraries/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- <link href="mediaAssets/templates/newAge/css/new-age.css" rel="stylesheet"> -->
+
+        <script src="externalLibraries/jqueryMin.js"></script>
+        <script src="externalLibraries/bootstrap/js/bootstrap.js"></script>
+
+        <script src="coreClasses/utilities/utilities.js"></script>
+        <script src="coreClasses/class.aui.js"></script>
+        <script src="coreClasses/class.ajax.js"></script>
+        <script src="registries/fonts.js"></script>
+        <script src="registries/css.js"></script>
+        
+        <script src="appScript/myStyle.js"></script>
+        <script src="appScript/loader.js"></script>
+        <script>
+
+   /*$(document).ready(function()
+    {
+       
+
+        $('#insertuser').submit( function(){
+
+
+       
+        var  firstname=$('#firstname').val();
+        var lastname= $('#lastname').val();
+        var username=$('#username').val();
+        var email=$('#email').val();
+        var password=$('#password').val();
+        var passwordmatch=$('#passwordmatch').val();
+        
+
+        function validatePassword(){
+            if(password != passwordmatch) {
+            passwordmatch.setCustomValidity("Passwords Don't Match");
+             } else {
+            passwordmatch.setCustomValidity('');
+            }
+        }
+      
+           
+                var formData = {
+                'firstname'       : firstname,
+                'lastname'        : lastname,
+                'username'        : username,
+                'email'           : email,
+                'password'        : password,
+                'passwordmatch'   : passwordmatch
+                 };
+
+
+                $.ajax({
+                    url: 'http://localhost:3000/insertuser',
+                    data: formData,
+                    //cache: false,
+                    dataType: 'json',
+                   // processData: false,
+                    type: 'POST',
+
+                    }).done(function(data) {
+
+                        console.log(data);
+                        $('#response').append(data);
+                        alert(data);
+                    });
+                event.preventDefault();
+        });
+
+    }); 
+
+   */        
+            var cssSet = new styleRegistry();
+            cssSet.loadFont('Zilla');
+            cssSet.loadCss('basic');
+
+             var a = new auiNavbar('view1', {
+                title: {label: 'AutoScholar Advisor', cssStyle: 'font-family: Zilla; font-size:2em; color: #ffffff'},
+                left: {
+                    about: {label: 'About', callback: function(){alert('about')}},
+                    programs: {label: 'Programs', callback: function(){alert('programs')}},
+                    students: {label: 'Students', callback: function(){alert('Students')}}
+                },
+                right: {
+                    privacy: {label: 'Privacy'},
+                    myAccount: {label: 'My Account'}
+                }
+            }, {id: 'rootView'});
+            
+          
+            
+            
+            a.render();
+            // .setContent({script: '<h3>This is my text</h3>'}).render();
+        </script>
+                                
+    </head>
+
+    <body>
+        <center>
+            <div id="rootView" style="background-color: #66BCF9; padding: 20px"></div>
+        </center>
+            <div class='container'>
+                <form method="POST" id="insertuser" action="/insertuser">
+                    <fieldset>
+                      <legend><h1>Register</h1></legend>
+                      <div class="form-group">
+                        <label for="firstname">Firstname</label>
+                        <input type="text" class="form-control" size="50" name='firstname' id="firstname" placeholder="Firstname" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="lastname">Lastname</label>
+                        <input type="text" class="form-control" size='50' name='lastname' id="lastname" placeholder="Lastname" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" size='50' name='username' id="username" placeholder="Username" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" size='50' name='email' id="email" placeholder="Email" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control"  size='50' name='password' onchange='validatePassword()' id="password" placeholder="Password" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="passwordmatch">PasswordMatch</label>
+                        <input type="password" class="form-control"  size='80' name='passwordmatch' onkeyup="validatePassword()" id="passwordmatch" placeholder="Confirm Password" required>
+                      </div>
+                      <center> <button type="submit" class="btn btn-primary">Submit</button></center>
+                    </fieldset>
+
+                    <div id="response"></div>>
+                </form>
+
+                <div id="result"></div>
+              </div> 
+ 
+    </body>
+</html>

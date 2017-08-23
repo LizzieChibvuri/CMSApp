@@ -1,0 +1,43 @@
+<html>
+ <head>
+  <title>Login form</title>
+  <link rel="stylesheet" type="text/css" href="/public/css/stylesheet.css"/>
+  <script src="/js/jquery-3.2.1.js"></script>
+<script>
+
+function grabUsers()
+{
+	console.log('inside grab users');
+$ajax({
+	type="GET",
+	url="http://localhost:3000/membersadmin",
+	dataType:"json"
+}).done(function(data){
+	console.log("GET response:",JSON.stringify(data,"",2));
+
+$"#getUsers".html(JSON.stringify(data,"",2));
+
+}).fail(function(jqXHR,textStatus,err){
+	console.log('Ajax error response;',textStatus);
+});
+}
+
+function grabArticles()
+{
+ alert('u clicke me fro script');
+}
+</script>
+</head>
+<body  style="background-color: gray">
+<form method="POST"  action=""  >
+<input type="button"  name="submit" value="logout" id="submit" float="left">
+<h1>Control Panel<h1>
+
+<button onclick="grabUsers()" >View users</button>
+<p><pre id="getUsers"></pre></p>
+<button onclick= "grabArticles()">clickme</button>
+<button onclick= "alert('u clicke me from button')">clickme</button>
+<p><pre id="getArticles"></pre></p>
+</form>
+</body>
+</html>

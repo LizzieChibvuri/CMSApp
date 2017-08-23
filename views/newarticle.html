@@ -1,0 +1,78 @@
+<html>
+ <head>
+  <title>New user</title>
+  <script src=''></script>
+  <link rel="stylesheet" type="text/css" href="/public/css/stylesheet.css"/>
+
+</head>
+<body  style="background-color: grey">
+
+<div class="form">
+<form  action='/newarticle' method="post" align="center"  float="right" style="width:100%">
+<fieldset>
+<legend align="center">New Article</legend>
+
+    <label for="title">Title:</label>
+   <input type="text" name="title" size="40" placeholder="type title" id="title">
+   <br />
+   <br />
+   <label for="email">Author:</label>
+   <input type="text" name="email" size="40" placeholder="type your email" id="email"  readonly>
+   <br />
+   <br />
+   
+    <label for="category">Category:</label>
+   <select type="text" name="category"  placeholder="from db" id="category">
+      <option>fromdb1</option>
+      <option>fromdb2</option>
+      <option>fromdb13</option>
+   </select>
+   <br />
+   <br />
+   <label for="status">Status:</label>
+   <select type="text" name="category" placeholder="type your category" id="category">
+    <option>published</option>
+      <option>unpublished</option>
+      <option>fromdb</option>
+   </select>
+   <br />
+   <br />
+       
+    <label for="article">Article:</label>
+   <textarea type="text" name="article" rows="15"  cols="180"  placeholder="type your article" id="article"></textarea> 
+   <br />
+   <br />
+   <input type="button" value="Submit" id="submit"><br/><br/>
+</fieldset>
+ </form>
+</div>
+<div class="form">
+<form  action='/listusers' method="post" align="center"  float="left" style="width:100%">
+<fieldset>
+<legend align="center">Articles list</legend>
+
+    <table width="100%" style="border:2px solid">
+    <tr>
+    <th>ArticleID</th>
+    <th>Title</th>
+    <th>Category</th>
+    <th>Author</th>
+    <th>Status</th>
+    <th>Article</th>
+    <th>Actions</th>
+    </tr>
+    <tr>
+    <td>fiels1</td>
+    <td>fiels2</td>
+    <td>fiels3</td>
+    <td>fiels4</td>
+    <td>fiels5</td>
+    <td>fiels6</td>
+    <td><a href="#">view</a><br/><a href="#">edit</a><br/><a href="#">delete</a></td>
+    </tr>
+    </table>
+</fieldset>
+ </form>
+ </div>
+</body>
+</html>
