@@ -8,6 +8,7 @@ var expressValidator=('express-validator')
 
 
 var app=express();
+var port=process.env.PORT || 8080
 
 const DBConnect=require('./dbconn.js');
 const Members=require('./members.js');
@@ -261,7 +262,7 @@ if(!req.body) return res.sendStatus(400);
 
 
 
-var  server=app.listen(8080,function(){
-	console.log('Server running on port 8080');
+var  server=app.listen(port,function(){
+	console.log('Server running on port '+ port);
 });
 
