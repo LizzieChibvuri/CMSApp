@@ -48,16 +48,7 @@ var sess;
 
 app.get('/',function(req,res)
 {
-	var data=articles.selectArticles(function(err,recordset){
-
-		if(err){
-			res.send("Page cant be displayed");
-			console.log(err)
-		};
-
-		res.send(recordset );
-
-	});
+	res.redirect('/login');
 	
 
 });
