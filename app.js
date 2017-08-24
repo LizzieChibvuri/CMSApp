@@ -79,7 +79,7 @@ app.post('/insertuser',function(req,res)
 		if(err)
 		{
 			console.log(err);
-			res.send('A user with this username or password already exists,')
+			res.send(err)
 		}
                  
 		else if(result)
