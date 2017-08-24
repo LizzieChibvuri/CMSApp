@@ -2,6 +2,7 @@ var dotenv = require('dotenv').load();
 var express=require('express');
 var session=require('express-session');
 var passport=require('passport');
+var ejs=require('ejs');
 var cookieParser=require('cookie-parser')
 var bodyParser=require('body-parser');
 var expressValidator=('express-validator')
@@ -25,7 +26,7 @@ let articles=new Articles();
 //connecting to mssql database
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname +'/public')); //container of assets
-//app.engine('html', require('ejs').renderFile);
+app.engine('html', require('ejs').renderFile);
 //app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({limit:'52428800',extended:true}));
 app.use(bodyParser.json());  //body parser uses json data
@@ -36,7 +37,7 @@ app.use(cookieParser());
 app.use(session({
 	secret:process.env.SESSION_SECRET,
     resave:false,
-    saveUninitialized:false
+    saveUninitialized:false,
     //cookie:{secure:true}          
              
     }));
@@ -164,27 +165,10 @@ app.get('/activate',function(req,res)
 		
 	
 
-
-app.get('/about',authenticated,function(req,res)
-{
-
-	sess=req.session;
-
-		if(sess.email){
-
-			res.redirect('index1.html');
-
-		}
-		else{
-			res.sendFile('login.html')
-		}
-});
-
-
 app.get('/profile',function(req,res)
 {
   
- 	res.send('<a href="http://localhost:8080/logout">logout</a><br/><h1>Welcome to your profile</h1>');
+ 	res.send('<a href="http://localhost:'+port+'/logout">logout</a><br/><h1>Welcome to your profile</h1>');
 
 });
 
@@ -192,7 +176,7 @@ app.get('/profile',function(req,res)
 app.get('/login',function(req,res)
 {
      //res.send("</h1>Wrong password,go back to login page</h1>")
- 	res.sendFile('C:/Users/Elizabeth/Dropbox/Elizabeth/CMS/public/login.html');
+ 	res.render('login.html');
 
 });
 
