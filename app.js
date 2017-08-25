@@ -6,6 +6,9 @@ var ejs=require('ejs');
 var cookieParser=require('cookie-parser')
 var bodyParser=require('body-parser');
 var expressValidator=('express-validator')
+var nodemailer=require('nodemailer');
+
+
 
 
 var app=express();
@@ -15,12 +18,14 @@ const DBConnect=require('./dbconn.js');
 const Members=require('./members.js');
 const Articles=require('./articles.js');
 var authenticated = require('./authenticated');
+const email=require('./emailconfig.js');
 require('./passport')(passport); // pass passport for configuration
 
 
 
 let members=new Members();
 let articles=new Articles();
+let emailsender=new email();
 
 
 //connecting to mssql database
@@ -53,6 +58,32 @@ app.get('/',function(req,res)
 	res.redirect('/login');
 	
 
+});
+
+app.get('/sendemail',function(req,res)
+{
+	var mailoptions = {
+        from: '"Liz" lizdevtest@gmail.com',// sender address
+        to: 'echibvuri4@gmail.com', // list of receivers
+        subject: 'Confirm Registration', // Subject line
+        text: 'Hi , Please use this one time link to activate your account:', //, // plaintext body
+        html: '<a href="">Click here to activate account</a>' // You can choose to send an HTML body instead
+    };
+
+
+    emailsender.sendMail(mailoptions,function(err,result){
+        if(err){
+            res.send("Message sending error")
+
+            console.log(err)
+        }
+
+        else if(result){
+            res.send("Message sent successfully")
+            console.log(result)
+                          
+        }
+    })
 });
 
 
