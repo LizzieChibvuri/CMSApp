@@ -6,7 +6,6 @@ var nodemailer=require('nodemailer');
 	// create reusable transporter object using the default SMTP transport
     var transporter = nodemailer.createTransport({
 	    service: process.env.EMAIL_SERVICE,
-	    host:process.env.EMAIL_HOST,
 	    auth:{
 		    
 		        user: process.env.EMAIL_USER,
